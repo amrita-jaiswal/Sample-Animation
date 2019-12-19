@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        img{
+            width:200px;
+            height: 200px
+        }
+
+        main{
+            padding:10px;
+            margin:50px;
+        }
+        
+       .image{
+
+           /* left:50%;
+           right:50%; */
+           margin-left: 20px;
+           padding:10px;
+          
+}
+
+        </style>
+
+</head>
+
+<body>
+   
+    <main><img id="image" src ="download.jpg"></main>
+    <!-- <input type="button" value="rotate" id="clickme"> -->
+
+    <button onclick="start()">Start Rotation</button>
+    <button onclick="stop()">Stop Rotation</button>
+
+    <button onclick="moveRight()">Right</button>
+    <button onclick="moveLeft()">Left</button>
+    
+    <script>
+
+        var deg = 2;
+                var rotation_diff = 20;
+
+                var rotation;
+
+                function start()
+                {
+                    rotation=1;    
+                    rotate();
+                }
+
+                function stop()
+                {
+                    rotation=0;    
+                }
+
+                function rotate() 
+                {
+                var img = document.getElementById("image");
+
+                img.style.webkitTransform = "rotate("+deg+"deg)";
+                img.style.transform = "rotate("+deg+"deg)";
+                img.style.MozTransform = "rotate("+deg+"deg)";
+                img.style.msTransform = "rotate("+deg+"deg)";
+                img.style.OTransform = "rotate("+deg+"deg)";
+
+                    if(rotation==1) {
+
+                        setTimeout("rotate()",500);   } 
+
+                        deg = deg + rotation_diff;
+                }
+
+            
+        // function rotate(){
+        //     var img = document.getElementById('image');
+        // //     var i= [];
+
+        // //    for(i=1;i<100;i++){
+        //     img.setAttribute('style','transform:rotate(60deg)');
+        // }
+        // // }
+
+        function moveRight()
+            {
+        document.getElementById('image').style.position="absolute";
+        document.getElementById('image').style.right="20px";
+
+            }
+
+            function moveLeft()
+            {
+        document.getElementById('image').style.position="relative";
+        document.getElementById('image').style.left="10px";
+            }
+        
+
+    </script>
+
+</body>
+</html>
